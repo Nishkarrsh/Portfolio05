@@ -1,97 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nishkarsh Gangwar | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nishkarsh Gangwar - Official Portfolio</title>
   <style>
     :root {
-      --primary-color: #1f4037;
-      --secondary-color: #99f2c8;
-      --accent-color: #2c7744;
-      --text-color: #333;
-      --light-bg: #f0f2f5;
+      --primary: #1f4037;
+      --secondary: #99f2c8;
+      --accent: #2c7744;
     }
-    
     body {
       margin: 0;
       padding: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: var(--light-bg);
-      color: var(--text-color);
+      background-color: #f8f9fa;
+      color: #333;
       line-height: 1.6;
     }
-    
     header {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
       text-align: center;
-      padding: 80px 20px;
+      padding: 90px 20px 70px;
       position: relative;
-      overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
     }
-    
-    header::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('images/hero-pattern.png') repeat;
-      opacity: 0.05;
-      z-index: 0;
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid rgba(255,255,255,0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      margin: 0 auto 25px;
+      transition: transform 0.5s ease;
     }
-    
-    header .content {
-      position: relative;
-      z-index: 1;
+    .profile-img:hover {
+      transform: rotate(5deg) scale(1.05);
     }
-    
-    header h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
+    h1 {
+      font-size: 2.8em;
+      margin: 0;
       letter-spacing: 1px;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-      animation: fadeIn 1s ease;
     }
-    
-    header p {
-      font-size: 1.2em;
-      font-weight: 300;
+    .tagline {
+      font-size: 1.3em;
       max-width: 700px;
-      margin: 0 auto;
+      margin: 15px auto 0;
+      opacity: 0.9;
     }
-    
-    main {
-      padding: 40px 20px;
+    .container {
       max-width: 1200px;
-      margin: auto;
+      margin: -50px auto 50px;
+      padding: 0 20px;
     }
-    
     .card {
-      background: #fff;
-      border-radius: 16px;
+      background: white;
+      border-radius: 15px;
       padding: 30px;
       margin-bottom: 30px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
     }
-    
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+      transform: translateY(-10px);
     }
-    
     h2 {
-      color: var(--primary-color);
-      margin-bottom: 20px;
-      font-weight: 700;
+      color: var(--primary);
       position: relative;
-      padding-bottom: 10px;
+      padding-bottom: 15px;
+      margin-top: 0;
     }
-    
     h2::after {
       content: "";
       position: absolute;
@@ -99,160 +79,87 @@
       left: 0;
       width: 60px;
       height: 4px;
-      background: var(--secondary-color);
+      background: var(--secondary);
       border-radius: 2px;
     }
-    
-    ul {
-      padding-left: 20px;
-    }
-    
-    li {
-      margin-bottom: 10px;
-    }
-    
-    .images {
+    .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
+      gap: 25px;
+      margin-top: 25px;
     }
-    
-    .images img {
+    .gallery img {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
     }
-    
-    .images img:hover {
+    .gallery img:hover {
       transform: scale(1.03);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     }
-    
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid white;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      margin: 0 auto 20px;
-      display: block;
-    }
-    
     footer {
       text-align: center;
-      padding: 25px;
-      background-color: #111;
+      padding: 30px;
+      background: #111;
       color: white;
-      margin-top: 40px;
     }
-    
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
-    }
-    
-    .social-links a {
-      color: white;
-      font-size: 1.5em;
-      transition: color 0.3s ease;
-    }
-    
-    .social-links a:hover {
-      color: var(--secondary-color);
-    }
-    
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.2em;
-      }
-      
-      .images {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      header { padding: 70px 20px 50px; }
+      .profile-img { width: 140px; height: 140px; }
+      h1 { font-size: 2.2em; }
+      .gallery { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="content">
-      <!-- Add your profile image here -->
-      <img src="images/profile.jpg" alt="Nishkarsh Gangwar" class="profile-img">
-      <h1>Nishkarsh Gangwar</h1>
-      <p>Passionate Freelancer | Athlete | NCC Cadet | Chess Enthusiast</p>
-    </div>
+    <img src="https://drive.google.com/uc?export=view&id=1HE8aU7nbQWO1NCIw7f8rTzkP3uQ97V9x" 
+         alt="Nishkarsh Gangwar" class="profile-img">
+    <h1>Nishkarsh Gangwar</h1>
+    <p class="tagline">Passionate Freelancer | Champion Athlete | NCC Cadet | Chess Strategist</p>
   </header>
 
-  <main>
+  <div class="container">
     <section class="card">
-      <h2>About Me</h2>
-      <p>Hello! I'm Nishkarsh Gangwar — a dedicated freelancer with skills in video editing, photo editing, branding, and Instagram growth. Apart from digital creativity, I have a deep passion for athletics, discipline through NCC, and strategic thinking in chess. I strive to maintain a balance between personal growth, service, and success.</p>
-    </section>
-
-    <section class="card">
-      <h2>Skills & Services</h2>
-      <ul>
-        <li><strong>Video Editing:</strong> Professional editing for social media, YouTube, and commercials</li>
-        <li><strong>Photo Editing:</strong> Advanced retouching, color correction, and creative effects</li>
-        <li><strong>Branding:</strong> Logo design, brand identity, and visual storytelling</li>
-        <li><strong>Social Media Growth:</strong> Instagram strategy and content planning</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Achievements & Extracurricular Activities</h2>
-      <ul>
-        <li><strong>District Champion</strong> in 100m and 400m sprint</li>
-        <li><strong>Karate A.O.I Runner-up</strong> – National Level</li>
-        <li><strong>NCC Cadet</strong> – Completed B certificate training, part of parade and drills, known for discipline and leadership</li>
-        <li><strong>State Chess Champion</strong> – Strategist with competitive mindset</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Gallery</h2>
-      <div class="images">
-        <!-- Replace these with your actual images -->
-        <img src="images/nishkarsh1.jpg" alt="Nishkarsh at Athletics Competition">
-        <img src="images/karate.jpg" alt="Karate Tournament">
-        <img src="images/chess.jpg" alt="Chess Championship">
-        <img src="images/ncc.jpg" alt="NCC Parade">
-        <img src="images/editing.jpg" alt="Creative Work">
-        <img src="images/award.jpg" alt="Receiving Award">
+      <h2>Karate Achievements</h2>
+      <div class="gallery">
+        <img src="https://drive.google.com/uc?export=view&id=1G_yPHO6CSoyNbTn3Tj9jJVmdA6SslgsV" 
+             alt="Nishkarsh in Karate competition">
+        <img src="https://drive.google.com/uc?export=view&id=1GkOqlQzky7P-XeUwXGK5JZSWLJRDu8gc" 
+             alt="Karate tournament victory">
       </div>
     </section>
 
     <section class="card">
-      <h2>Contact</h2>
-      <p><strong>Email:</strong> <a href="mailto:ys.gangwar90@gmail.com">ys.gangwar90@gmail.com</a></p>
-      <p><strong>Instagram:</strong> <a href="https://instagram.com/nishkarsh.05" target="_blank">@nishkarsh.05</a></p>
-      <p><strong>Portfolio:</strong> <a href="#" target="_blank">View my work samples</a></p>
+      <h2>NCC Journey</h2>
+      <div class="gallery">
+        <img src="https://drive.google.com/uc?export=view&id=1H02crEDnfhAZPlbMT9G-WYIQcikAZs46" 
+             alt="NCC Cadet Nishkarsh">
+        <img src="https://drive.google.com/uc?export=view&id=1GSbFdH1yEpLPfhGHC0_AmMoD2fG_6Rh6" 
+             alt="NCC Parade">
+      </div>
     </section>
-  </main>
+
+    <section class="card">
+      <h2>Athletics Prowess</h2>
+      <div class="gallery">
+        <img src="https://drive.google.com/uc?export=view&id=1GwtCGpedpGAbzmUgDxn8AP8uOl3bduDs" 
+             alt="Sprinting champion">
+        <img src="https://drive.google.com/uc?export=view&id=1GaJ0VlCvbkfZBApTtgOaW8zFqrLolk2W" 
+             alt="Track competition">
+        <img src="https://drive.google.com/uc?export=view&id=1GTUVkyKHU_JRojzDPl8jIW_GzQ_wVajO" 
+             alt="Athletics award">
+      </div>
+    </section>
+  </div>
 
   <footer>
-    <p>&copy; 2025 Nishkarsh Gangwar | All rights reserved.</p>
-    <div class="social-links">
-      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-    </div>
+    <p>&copy; 2023 Nishkarsh Gangwar. All rights reserved.</p>
   </footer>
 
-  <!-- Font Awesome for icons (add this before closing body tag) -->
-  <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
 </body>
 </html>
